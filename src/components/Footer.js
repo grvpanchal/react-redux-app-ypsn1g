@@ -3,8 +3,7 @@ import FilterLink from '../containers/FilterLink'
 import { VisibilityFilters } from '../actions'
 
 const Footer = () => (
-  <div>
-    <span>Show: </span>
+  <div class="btn-group btn-group-justified" role="group">
     <FilterLink filter={VisibilityFilters.SHOW_ALL}>
       All
     </FilterLink>

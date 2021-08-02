@@ -2,15 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Link = ({ active, children, onClick }) => (
-    <button
+    <a
+      href="#"
+      className="btn btn-default"
        onClick={onClick}
        disabled={active}
-       style={{
-           marginLeft: '4px',
-       }}
+       role="button"
     >
       {children}
-    </button>
+    </a>
 )
 
 Link.propTypes = {

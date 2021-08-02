@@ -15,10 +15,15 @@ const AddTodo = ({ dispatch }) => {
         dispatch(addTodo(input.value))
         input.value = ''
       }}>
-        <input ref={node => input = node} />
-        <button type="submit">
-          Add Todo
-        </button>
+        
+        <div className="input-group">
+          <input className="form-control" ref={node => input = node} />
+          <span className="input-group-btn">
+            <button className="btn btn-default" type="submit">
+              Add Todo
+            </button>
+          </span>
+        </div>
       </form>
     </div>
   )
