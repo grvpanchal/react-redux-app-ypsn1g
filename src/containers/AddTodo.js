@@ -19,7 +19,7 @@ const AddTodo = ({ dispatch }) => {
         <div className="input-group">
           <input className="form-control" ref={node => input = node} />
           <span className="input-group-btn">
-            <button className="btn btn-default" type="submit">
+            <button className="btn btn-success" type="submit">
               Add Todo
             </button>
           </span>

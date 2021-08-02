@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 const Link = ({ active, children, onClick }) => (
     <a
       href="#"
-      className="btn btn-default"
+      className="btn btn-primary"
        onClick={onClick}
        disabled={active}
        role="button"
