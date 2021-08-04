@@ -1,13 +1,16 @@
 import React from 'react'
-import { render } from 'react-dom'
+import { render, hydrate } from 'react-dom'
 import { Provider } from 'react-redux'
 import App, { store } from '@mfe/app'
 
-render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.getElementById('root')
-);
+const RootComp = () => (<Provider store={store}><App /></Provider>);
+
+const root = document.getElementById('root');
+
+if (root.hasChildNodes() === true) {
+  hydrate(<RootComp />, root);
+} else {
+  render(<RootComp />, root);
+}
 
 export default App;

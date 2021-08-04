@@ -97,14 +97,15 @@ module.exports = function (webpackEnv) {
         return loaders;
     };
 
+    const { imports } = require(paths.appImportmap);
+
     return {
         mode: isEnvProduction ? 'production' : isEnvDevelopment && 'development',
         bail: isEnvProduction,
-        externals: {
-            react: 'react',
-            'react-dom': 'react-dom',
-            '@mfe/app': '@mfe/app',
-        },
+        externals: Object.keys(imports).reduce((acc, itm) => {
+            acc[itm] = itm;
+            return acc;
+        }, {}),
         devtool: isEnvProduction
             ? shouldUseSourceMap
                 ? 'source-map'
@@ -115,7 +116,7 @@ module.exports = function (webpackEnv) {
             libraryTarget: 'system',
             path: isEnvProduction ? paths.appPublic : undefined,
             pathinfo: isEnvDevelopment,
-            filename: 'static/js/mfe-app.system.js',
+            filename: `static/js/${paths.appName}.system.js`,
             futureEmitAssets: true,
             publicPath,
             devtoolModuleFilenameTemplate: isEnvProduction

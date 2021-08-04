@@ -3,6 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const getPublicUrlOrPath = require('react-dev-utils/getPublicUrlOrPath');
+const resolve = require('resolve');
 
 // Make sure any symlinks in the project folder are resolved:
 // https://github.com/facebook/create-react-app/issues/637
@@ -53,10 +54,12 @@ const resolveModule = (resolveFn, filePath) => {
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
+  appName: require('../package.json').name,
   appPath: resolveApp('.'),
   appBuild: resolveApp(buildPath),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
+  appImportmap: resolveApp('public/importmap.json'),
   appIndexJs: resolveModule(resolveApp, 'src/index'),
   appExportJs: resolveModule(resolveApp, 'src/components/App'),
   appPackageJson: resolveApp('package.json'),

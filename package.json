@@ -49,10 +49,10 @@
     "postcss-safe-parser": "5.0.2",
     "prompts": "2.4.0",
     "prop-types": "15.6.1",
-    "react": "16.1.1",
+    "react": "16.14.0",
     "react-app-polyfill": "^2.0.0",
     "react-dev-utils": "^11.0.3",
-    "react-dom": "16.1.1",
+    "react-dom": "16.14.0",
     "react-redux": "5.0.7",
     "react-refresh": "^0.8.3",
     "redux": "3.7.2",
@@ -138,7 +138,11 @@
     "rules": {
       "import/no-unresolved": [
         "error",
-        { "ignore": ["@mfe/app"] }
+        {
+          "ignore": [
+            "@mfe/app"
+          ]
+        }
       ]
     }
   },
