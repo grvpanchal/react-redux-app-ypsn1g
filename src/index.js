@@ -1,9 +1,12 @@
 import React from 'react'
+import { createStore } from 'redux'
 import { render, hydrate } from 'react-dom'
-import { Provider } from 'react-redux'
-import App, { store } from '@mfe/app'
+import App from '@mfe/app'
+import rootReducer from './reducers'
 
-const RootComp = () => (<Provider store={store}><App /></Provider>);
+const store = createStore(rootReducer);
+
+const RootComp = () => (<App store={store} />);
 
 const root = document.getElementById('root');
 
@@ -12,5 +15,3 @@ if (root.hasChildNodes() === true) {
 } else {
   render(<RootComp />, root);
 }
-
-export default App;
