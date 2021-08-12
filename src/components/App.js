@@ -1,11 +1,9 @@
 import React from 'react'
-import { createStore } from 'redux'
 import Footer from './Footer'
 import AddTodo from '../containers/AddTodo'
 import VisibleTodoList from '../containers/VisibleTodoList'
-import rootReducer from '../reducers'
-
-export const store = createStore(rootReducer)
+import { Provider } from 'react-redux';
+import { renderToString } from 'react-dom/server';
 
 const App = () => (
   <div className="container" style={{ maxWidth: '330px' }}>
@@ -18,6 +16,18 @@ const App = () => (
     <VisibleTodoList />
     <Footer />
   </div>
-)
+);
 
-export default App
+export const renderString = ({ store }) => {
+  return renderToString(<RootApp store={store} />)
+}
+
+const RootApp = ({ store }) => {  
+  return (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+};
+
+export default RootApp;
