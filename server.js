@@ -22,8 +22,11 @@ app.use(express.static('build', { index: false }))
 const indexHTML = fs.readFileSync('./public/index.html', { encoding: 'utf8', flag: 'r' });
 
 app.get('/', async (req, res) => {
-    const { renderString } = await global.System.import('@mfe/app');
-    const outputReactDom = renderString({ store });
+    const AppJs = await global.System.import('@mfe/app');
+    const { default: React } = await global.System.import('react');
+    const { renderToString } = await global.System.import('react-dom/server');
+    const AppElement = React.createElement(AppJs.default, { store });
+    const outputReactDom = renderToString(AppElement);
     const outputHTML = indexHTML
         .replace(
             /(<div id="root"><\/div>)/igm,

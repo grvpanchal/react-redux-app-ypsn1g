@@ -18,10 +18,6 @@ const App = () => (
   </div>
 );
 
-export const renderString = ({ store }) => {
-  return renderToString(<RootApp store={store} />)
-}
-
 const RootApp = ({ store }) => {  
   return (
     <Provider store={store}>
