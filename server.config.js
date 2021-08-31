@@ -1,6 +1,10 @@
 const { combineReducers } = require('redux');
 
-const todos = (state = [], action) => {
+const todos = (state = [{
+  id: -1,
+  text: 'Fake Entry',
+  completed: false
+}], action) => {
     switch (action.type) {
       case 'ADD_TODO':
         return [

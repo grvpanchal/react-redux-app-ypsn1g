@@ -2,7 +2,7 @@
     "imports": {
         "react": "https://cdn.jsdelivr.net/npm/@esm-bundle/react@16.14.0/system/react.development.js",
         "react-dom": "https://cdn.jsdelivr.net/npm/@esm-bundle/react-dom@16.14.0-fix.1/system/react-dom.development.js",
-        "react-dom/server": "https://cdn.jsdelivr.net/npm/@esm-bundle/react-dom@16.14.0-fix.1/system/react-dom-server.browser.development.js",
-        "@mfe/app": "http://localhost:3000/static/js/mfe-app.system.js"
+        "@mfe/app": "http://localhost:3000/static/js/mfe-app.system.js",
+        "@mfe/hello": "http://localhost:3000/static/js/mfe-hello.js"
     }
 }

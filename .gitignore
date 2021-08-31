@@ -1,4 +1,4 @@
 node_modules
 build
-public/static/js/mfe-app.system.js
-public/static/js/mfe-app.system.js.map
+public/static/js/mfe-app.*
+public/loadable-stats.json
